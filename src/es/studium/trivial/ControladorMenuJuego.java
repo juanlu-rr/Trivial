@@ -5,20 +5,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-
 public class ControladorMenuJuego implements ActionListener, WindowListener {
-	ModeloMenuJuego mMenuJuego = null;
-	VistaMenuJuego vMenuJuego = null;
+	ModeloMenuJuego ModeloMenuJuego = null;
+	VistaMenuJuego VistaMenuJuego = null;
+	VistaRanking10 VistaRanking10 = null;
 	
-	public ControladorMenuJuego(ModeloMenuJuego mmj, VistaMenuJuego vmj) {
-		this.mMenuJuego = mmj;
-		this.vMenuJuego = vmj;
+	public ControladorMenuJuego(ModeloMenuJuego ModeloMenuJuego, VistaMenuJuego VistaMenuJuego) {
+		this.ModeloMenuJuego = ModeloMenuJuego;
+		this.VistaMenuJuego = VistaMenuJuego;
 		
-		vMenuJuego.frame.addWindowListener(this);
-		vMenuJuego.btnNuevoJuego.addActionListener(this);
-		vMenuJuego.btnCrearPregunta.addActionListener(this);
-		vMenuJuego.btnMostrarRanking.addActionListener(this);
-		
+		VistaMenuJuego.frame.addWindowListener(this);
+		VistaMenuJuego.btnNuevoJuego.addActionListener(this);
+		//VistaMenuJuego.btnCrearPregunta.addActionListener(this);
+		VistaMenuJuego.btnMostrarRanking.addActionListener(this);
 	}
 
 	public void windowActivated(WindowEvent e) {
@@ -30,7 +29,7 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 	}
 
 	public void windowClosing(WindowEvent e) {
-		vMenuJuego.frame.setVisible(false);
+		VistaMenuJuego.frame.setVisible(false);
 	}
 
 	public void windowDeactivated(WindowEvent e) {
@@ -50,14 +49,20 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		Object o = e.getSource();
-		if (o.equals(vMenuJuego.btnNuevoJuego)) {
-			{
+		Object objPulsado1 = e.getSource();
+		if (objPulsado1.equals(VistaMenuJuego.btnNuevoJuego)) {
 				ModeloJuegoPregunta mjp = new ModeloJuegoPregunta();
 				VistaJuegoPregunta vjp = new VistaJuegoPregunta();
 				new ControladorJuegoPregunta(mjp, vjp);
+		}
+		Object objetoPulsado2 = e.getSource();
+		if (objetoPulsado2.equals(VistaMenuJuego.btnMostrarRanking)) {
+
+			this.VistaRanking10 = new VistaRanking10();
+
+			for (int i = 0; i < es.studium.trivial.ModeloMenuJuego.rankingJugadores().size(); i++) {
+				VistaRanking10.rankingJugadores.add(es.studium.trivial.ModeloMenuJuego.rankingJugadores().get(i), VistaMenuJuego);
 			}
-			
 		}
 	}
 

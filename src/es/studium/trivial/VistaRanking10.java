@@ -1,7 +1,5 @@
 package es.studium.trivial;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -11,41 +9,20 @@ import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 
-public class VistaRanking10 {
-
+public class VistaRanking10 extends JFrame{
+	
+	private static final long serialVersionUID = 1L;
 	JFrame frame;
+	JList<String> rankingJugadores = new JList<String>();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaRanking10 window = new VistaRanking10();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
 	public VistaRanking10() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 0, 205));
@@ -70,9 +47,9 @@ public class VistaRanking10 {
 		lblSuPuntuacion.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblSuPuntuacion.setBackground(new Color(230, 230, 250));
 		
-		JList listaRanking = new JList();
-		listaRanking.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		listaRanking.setForeground(new Color(0, 0, 0));
+		JList<String> rankingJugadores = new JList<String>();
+		rankingJugadores.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		rankingJugadores.setForeground(new Color(0, 0, 0));
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -90,7 +67,7 @@ public class VistaRanking10 {
 					.addGap(164))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(75)
-					.addComponent(listaRanking, GroupLayout.PREFERRED_SIZE, 570, GroupLayout.PREFERRED_SIZE)
+					.addComponent(rankingJugadores, GroupLayout.PREFERRED_SIZE, 570, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(76, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
@@ -101,7 +78,7 @@ public class VistaRanking10 {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblSuPuntuacion, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(listaRanking, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
+					.addComponent(rankingJugadores, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
 					.addComponent(btnVolverMenu, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
 					.addGap(33))
