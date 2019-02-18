@@ -9,15 +9,14 @@ import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JList;
 
 public class VistaRanking10 extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JFrame frame;
-	JList<String> rankingJugadores = new JList<String>();
+	JList<String> rankingJugadores;
+	JButton btnVolverMenu;
 
 	public VistaRanking10() {
 		initialize();
@@ -36,10 +35,6 @@ public class VistaRanking10 extends JFrame{
 		label.setBackground(new Color(102, 205, 170));
 		
 		JButton btnVolverMenu = new JButton("Volver al Men\u00FA");
-		btnVolverMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		
 		JLabel lblSuPuntuacion = new JLabel("Ranking Top 10 Jugadores:");
 		lblSuPuntuacion.setHorizontalAlignment(SwingConstants.CENTER);
@@ -84,5 +79,6 @@ public class VistaRanking10 extends JFrame{
 					.addGap(33))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 }

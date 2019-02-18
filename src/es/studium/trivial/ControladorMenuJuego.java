@@ -6,17 +6,17 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class ControladorMenuJuego implements ActionListener, WindowListener {
-	ModeloMenuJuego ModeloMenuJuego = null;
-	VistaMenuJuego VistaMenuJuego = null;
-	VistaRanking10 VistaRanking10 = null;
 	
+	VistaMenuJuego VistaMenuJuego = null;
+	ModeloMenuJuego ModeloMenuJuego = null;
+	VistaRanking10 VistaRanking10 = null;
+
 	public ControladorMenuJuego(ModeloMenuJuego ModeloMenuJuego, VistaMenuJuego VistaMenuJuego) {
 		this.ModeloMenuJuego = ModeloMenuJuego;
 		this.VistaMenuJuego = VistaMenuJuego;
-		
-		VistaMenuJuego.frame.addWindowListener(this);
+
+		VistaMenuJuego.addWindowListener(this);
 		VistaMenuJuego.btnNuevoJuego.addActionListener(this);
-		//VistaMenuJuego.btnCrearPregunta.addActionListener(this);
 		VistaMenuJuego.btnMostrarRanking.addActionListener(this);
 	}
 
@@ -29,7 +29,7 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 	}
 
 	public void windowClosing(WindowEvent e) {
-		VistaMenuJuego.frame.setVisible(false);
+		VistaMenuJuego.setVisible(false);
 	}
 
 	public void windowDeactivated(WindowEvent e) {
@@ -48,22 +48,17 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		Object objPulsado1 = e.getSource();
-		if (objPulsado1.equals(VistaMenuJuego.btnNuevoJuego)) {
-				ModeloJuegoPregunta mjp = new ModeloJuegoPregunta();
-				VistaJuegoPregunta vjp = new VistaJuegoPregunta();
-				new ControladorJuegoPregunta(mjp, vjp);
-		}
-		Object objetoPulsado2 = e.getSource();
-		if (objetoPulsado2.equals(VistaMenuJuego.btnMostrarRanking)) {
-
-			this.VistaRanking10 = new VistaRanking10();
-
-			for (int i = 0; i < es.studium.trivial.ModeloMenuJuego.rankingJugadores().size(); i++) {
-				VistaRanking10.rankingJugadores.add(es.studium.trivial.ModeloMenuJuego.rankingJugadores().get(i), VistaMenuJuego);
-			}
+	public void actionPerformed(ActionEvent ae) {
+		Object objetoPulsado;
+		objetoPulsado = ae.getSource();
+		if (objetoPulsado.equals(VistaMenuJuego.btnNuevoJuego)) {
+			ModeloJuegoPregunta1 mjp = new ModeloJuegoPregunta1();
+			VistaJuegoPregunta1 vjp = new VistaJuegoPregunta1();
+			new ControladorJuegoPregunta1(mjp, vjp);
+		} else if (objetoPulsado.equals(VistaMenuJuego.btnMostrarRanking)) {
+			VistaRanking10 vistaRanking = new VistaRanking10();
+			ModeloRanking10 modeloRanking = new ModeloRanking10();
+			new ControladorRanking10 (modeloRanking, vistaRanking);
 		}
 	}
-
 }

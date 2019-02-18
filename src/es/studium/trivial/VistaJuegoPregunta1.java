@@ -1,7 +1,5 @@
 package es.studium.trivial;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -13,36 +11,21 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JRadioButton;
 
-public class VistaJuegoPregunta {
+public class VistaJuegoPregunta1 extends JFrame{
 
+
+	private static final long serialVersionUID = 1L;
 	JFrame frame;
+	static JLabel pregunta1;
+	JRadioButton respuesta1;
+	JRadioButton respuesta2;
+	JRadioButton respuesta3;
+	JButton btnSiguiente;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaJuegoPregunta window = new VistaJuegoPregunta();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public VistaJuegoPregunta() {
+	public VistaJuegoPregunta1() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 0, 205));
@@ -68,6 +51,8 @@ public class VistaJuegoPregunta {
 		JRadioButton respuesta2 = new JRadioButton("");
 		
 		JRadioButton respuesta3 = new JRadioButton("");
+		
+		JButton btnVolver = new JButton("Volver");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -75,7 +60,7 @@ public class VistaJuegoPregunta {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(label, GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE))
+							.addComponent(label, GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(32)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
@@ -83,12 +68,14 @@ public class VistaJuegoPregunta {
 								.addComponent(respuesta2, GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
 								.addComponent(respuesta3, GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
 								.addComponent(pregunta1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.RELATED, 20, Short.MAX_VALUE)))
+							.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))
 					.addGap(0))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(296)
+					.addGap(198)
+					.addComponent(btnVolver, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+					.addGap(99)
 					.addComponent(btnSiguiente, GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-					.addGap(300))
+					.addGap(174))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -103,10 +90,13 @@ public class VistaJuegoPregunta {
 					.addComponent(respuesta2, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(respuesta3, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
-					.addGap(64)
-					.addComponent(btnSiguiente, GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-					.addGap(31))
+					.addGap(63)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnVolver, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnSiguiente, GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+					.addGap(32))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 }
