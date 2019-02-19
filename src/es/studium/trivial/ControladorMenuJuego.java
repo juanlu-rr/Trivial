@@ -9,7 +9,7 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 	
 	VistaMenuJuego VistaMenuJuego = null;
 	ModeloMenuJuego ModeloMenuJuego = null;
-	VistaRanking10 VistaRanking10 = null;
+	VistaRanking VistaRanking = null;
 
 	public ControladorMenuJuego(ModeloMenuJuego ModeloMenuJuego, VistaMenuJuego VistaMenuJuego) {
 		this.ModeloMenuJuego = ModeloMenuJuego;
@@ -51,14 +51,17 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 	public void actionPerformed(ActionEvent ae) {
 		Object objetoPulsado;
 		objetoPulsado = ae.getSource();
-		if (objetoPulsado.equals(VistaMenuJuego.btnNuevoJuego)) {
+		if (objetoPulsado.equals(VistaMenuJuego.btnNuevoJuego)) 
+		{
 			ModeloJuegoPregunta1 mjp = new ModeloJuegoPregunta1();
 			VistaJuegoPregunta1 vjp = new VistaJuegoPregunta1();
 			new ControladorJuegoPregunta1(mjp, vjp);
-		} else if (objetoPulsado.equals(VistaMenuJuego.btnMostrarRanking)) {
-			VistaRanking10 vistaRanking = new VistaRanking10();
-			ModeloRanking10 modeloRanking = new ModeloRanking10();
-			new ControladorRanking10 (modeloRanking, vistaRanking);
+		} 
+		else if (objetoPulsado.equals(VistaMenuJuego.btnMostrarRanking)) 
+		{
+			VistaRanking vistaRanking = new VistaRanking();
+			ModeloRanking modeloRanking = new ModeloRanking();
+			new ControladorRanking (modeloRanking, vistaRanking);
 		}
 	}
 }

@@ -16,7 +16,7 @@ public class VistaJuegoPregunta1 extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	JFrame frame;
-	static JLabel pregunta1;
+	JLabel pregunta1;
 	JRadioButton respuesta1;
 	JRadioButton respuesta2;
 	JRadioButton respuesta3;
@@ -38,7 +38,7 @@ public class VistaJuegoPregunta1 extends JFrame{
 		label.setFont(new Font("Snap ITC", Font.BOLD, 26));
 		label.setBackground(new Color(102, 205, 170));
 		
-		JLabel pregunta1 = new JLabel("");
+		pregunta1 = new JLabel("");
 		pregunta1.setForeground(new Color(255, 255, 224));
 		pregunta1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		pregunta1.setBackground(Color.WHITE);

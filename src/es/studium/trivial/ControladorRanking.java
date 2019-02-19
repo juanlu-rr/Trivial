@@ -7,23 +7,23 @@ import java.awt.event.ItemListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class ControladorRanking10 implements WindowListener, ItemListener,ActionListener{
-	VistaRanking10 vistaRanking10 = null;
-	ModeloRanking10 modeloRanking10= null;
+public class ControladorRanking implements WindowListener, ItemListener,ActionListener{
+	VistaRanking vistaRanking = null;
+	ModeloRanking modeloRanking= null;
 
-	public ControladorRanking10(ModeloRanking10 m, VistaRanking10 v) {
-		this.vistaRanking10 = v;
-		this.modeloRanking10 = m;
+	public ControladorRanking(ModeloRanking m, VistaRanking v) 
+	{
+		this.vistaRanking = v;
+		this.modeloRanking = m;
 
-		v.btnVolverMenu.addActionListener(this);
-		System.out.println("Probando");
-		m.mostrarRanking(vistaRanking10.rankingJugadores);
+		vistaRanking.btnVolverMenu.addActionListener(this);
+		m.mostrarRanking(vistaRanking.rankingJugadores);
 	}
 
 	public void actionPerformed(ActionEvent a) {
 		Object objetoPulsado = a.getSource();
-		if (objetoPulsado.equals(vistaRanking10.btnVolverMenu)) {
-			vistaRanking10.setVisible(false);
+		if (objetoPulsado.equals(vistaRanking.btnVolverMenu)) {
+			vistaRanking.setVisible(false);
 		}
 	}
 
@@ -40,7 +40,7 @@ public class ControladorRanking10 implements WindowListener, ItemListener,Action
 	}
 
 	public void windowClosing(WindowEvent e) {
-		System.exit(0);
+
 	}
 
 	public void windowDeactivated(WindowEvent e) {

@@ -20,13 +20,16 @@ public class ControladorJuegoPregunta1 implements WindowListener, ItemListener,A
 		try {
 			ModeloJuegoPregunta1.rellenarPregunta();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		VistaJuegoPregunta1.respuesta1.addItemListener(this); 
 		VistaJuegoPregunta1.respuesta2.addActionListener(this);
 		VistaJuegoPregunta1.respuesta3.addActionListener(this);
 		VistaJuegoPregunta1.btnSiguiente.addActionListener(this);
+		ModeloJuegoPregunta1.rellenarPregunta(VistaJuegoPregunta1.pregunta1);
+		ModeloJuegoPregunta1.rellenarRespuesta1(VistaJuegoPregunta1.respuesta1);
+		ModeloJuegoPregunta1.rellenarRespuesta2(VistaJuegoPregunta1.respuesta2);
+		ModeloJuegoPregunta1.rellenarRespuesta3(VistaJuegoPregunta1.respuesta3);
 
 	}
 

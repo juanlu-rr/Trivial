@@ -8,9 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
-public class ModeloRanking10 {
+public class ModeloRanking 
+{
+	public ModeloRanking() 
+	{}
 	
 	public JList<String> mostrarRanking (JList<String> rankingJugadores) {
 
@@ -23,8 +27,6 @@ public class ModeloRanking10 {
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet rs = null;
-		
-		List<String> mostrarRanking = new ArrayList<>();
 
 		try {
 			Class.forName(driver);
@@ -33,7 +35,7 @@ public class ModeloRanking10 {
 			rs = statement.executeQuery(sentencia);
 
 			while (rs.next()) {
-				mostrarRanking.add("Nombre: " + rs.getString("nombreJugador") + " - " +" Puntos: " + rs.getString("puntuacion"));
+				((DefaultListModel<String>)rankingJugadores.getModel()).addElement("Nombre: " + rs.getString("nombreJugador") + " - " +" Puntos: " + rs.getString("puntuacion"));
 			}
 		} catch (ClassNotFoundException cnfe) {
 			System.out.println("Error 1-" + cnfe.getMessage());
@@ -50,4 +52,5 @@ public class ModeloRanking10 {
 		}
 		return rankingJugadores;
 	}
+
 }
