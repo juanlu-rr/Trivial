@@ -21,6 +21,7 @@ public class VistaJuegoPregunta1 extends JFrame{
 	JRadioButton respuesta2;
 	JRadioButton respuesta3;
 	JButton btnSiguiente;
+	JButton btnVolver;
 
 	public VistaJuegoPregunta1() {
 		initialize();
@@ -44,15 +45,22 @@ public class VistaJuegoPregunta1 extends JFrame{
 		pregunta1.setBackground(Color.WHITE);
 		pregunta1.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JButton btnSiguiente = new JButton("Siguiente");
+		respuesta1 = new JRadioButton("");
+		respuesta2 = new JRadioButton("");
+		respuesta3 = new JRadioButton("");
 		
-		JRadioButton respuesta1 = new JRadioButton("");
+//		if (respuesta1.isSelected() == true ) {
+//			respuesta2. != true;
+//			respuesta3.isSelected() == false;
+//		} else if (respuesta2 = true) {
+//			respuesta1 & respuesta3 = false;
+//		} else if (respuesta3 = true) {
+//			respuesta 1 & respuesta2 = false;
+//		}
 		
-		JRadioButton respuesta2 = new JRadioButton("");
+		btnSiguiente = new JButton("Siguiente");
+		btnVolver = new JButton("Volver");
 		
-		JRadioButton respuesta3 = new JRadioButton("");
-		
-		JButton btnVolver = new JButton("Volver");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -60,21 +68,21 @@ public class VistaJuegoPregunta1 extends JFrame{
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(label, GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE))
+							.addComponent(label, GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(32)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(respuesta1, GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
 								.addComponent(respuesta2, GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
 								.addComponent(respuesta3, GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
 								.addComponent(pregunta1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))
+							.addGap(34)))
 					.addGap(0))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(198)
 					.addComponent(btnVolver, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-					.addGap(99)
-					.addComponent(btnSiguiente, GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+					.addComponent(btnSiguiente, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)
 					.addGap(174))
 		);
 		groupLayout.setVerticalGroup(

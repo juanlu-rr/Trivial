@@ -5,9 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
@@ -23,7 +20,7 @@ public class ModeloRanking
 		String url = "jdbc:mysql://localhost:3306/juegotrivial";
 		String login = "root";
 		String password = "Studium2018;";
-		String sentencia = "SELECT * FROM jugadores";
+		String sentencia = "SELECT * FROM jugadores ORDER BY puntuacion DESC LIMIT 10";
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet rs = null;

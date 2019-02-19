@@ -6,34 +6,40 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.text.ParseException;
 
-public class ControladorJuegoPregunta1 implements WindowListener, ItemListener,ActionListener{
+public class ControladorJuegoPregunta1 implements WindowListener, ItemListener,ActionListener
+{
 	VistaJuegoPregunta1 VistaJuegoPregunta1 = null;
 	ModeloJuegoPregunta1 ModeloJuegoPregunta1= null;
 
-	public ControladorJuegoPregunta1(ModeloJuegoPregunta1 ModeloJuegoPregunta1, VistaJuegoPregunta1 VistaJuegoPregunta1) {
+	public ControladorJuegoPregunta1(ModeloJuegoPregunta1 ModeloJuegoPregunta1, VistaJuegoPregunta1 VistaJuegoPregunta1) 
+	{
 		this.VistaJuegoPregunta1 = VistaJuegoPregunta1;
 		this.ModeloJuegoPregunta1 = ModeloJuegoPregunta1;
 		
 		VistaJuegoPregunta1.addWindowListener(this);
-		try {
-			ModeloJuegoPregunta1.rellenarPregunta();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 		VistaJuegoPregunta1.respuesta1.addItemListener(this); 
 		VistaJuegoPregunta1.respuesta2.addActionListener(this);
 		VistaJuegoPregunta1.respuesta3.addActionListener(this);
 		VistaJuegoPregunta1.btnSiguiente.addActionListener(this);
-		ModeloJuegoPregunta1.rellenarPregunta(VistaJuegoPregunta1.pregunta1);
-		ModeloJuegoPregunta1.rellenarRespuesta1(VistaJuegoPregunta1.respuesta1);
-		ModeloJuegoPregunta1.rellenarRespuesta2(VistaJuegoPregunta1.respuesta2);
-		ModeloJuegoPregunta1.rellenarRespuesta3(VistaJuegoPregunta1.respuesta3);
+		VistaJuegoPregunta1.btnVolver.addActionListener(this);
+		
+		ModeloJuegoPregunta1.sacarInformacion(VistaJuegoPregunta1);	
+
 
 	}
 
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent a) {
+		Object objetoPulsado = a.getSource();
+		if (objetoPulsado.equals(VistaJuegoPregunta1.btnVolver)) {
+			VistaJuegoPregunta1.setVisible(false);
+		} 
+		else if (objetoPulsado.equals(VistaJuegoPregunta1.btnSiguiente)) {
+			VistaJuegoPregunta2 vistaJuegoPregunta2 = new VistaJuegoPregunta2();
+			ModeloJuegoPregunta2 modeloJuegoPregunta2 = new ModeloJuegoPregunta2();
+			new ControladorJuegoPregunta2 (modeloJuegoPregunta2, vistaJuegoPregunta2);
+		}
+			
 		
 	}
 
