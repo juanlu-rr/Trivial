@@ -17,7 +17,7 @@ public class ModeloRanking
 
 		// Conectar a la base de datos para comprobar credenciales
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/juegotrivial";
+		String url = "jdbc:mysql://localhost:3306/juegotrivial?useSSL=false";
 		String login = "root";
 		String password = "Studium2018;";
 		String sentencia = "SELECT * FROM jugadores ORDER BY puntuacion DESC LIMIT 10";

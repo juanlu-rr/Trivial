@@ -14,7 +14,7 @@ public class ModeloMenuJuego {
 	public boolean jugadorNuevo(String txtNombre) throws ParseException {
 		boolean conexion = false;
 		String driver = "com.mysql.jdbc.Driver";  
-		String url = "jdbc:mysql://localhost:3306/juegotrivial";  
+		String url = "jdbc:mysql://localhost:3306/juegotrivial?useSSL=false";  
 		String login = "root";  
 		String password = "Studium2018;"; 
 		String sentencia = "INSERT INTO jugadores(idJugador, nombreJugador) values "+"("+null+",'"+ txtNombre+"')";   
@@ -49,7 +49,7 @@ public class ModeloMenuJuego {
 	public static List<String> rankingJugadores() {
 
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/juegotrivial";
+		String url = "jdbc:mysql://localhost:3306/juegotrivial?useSSL=false";
 		String login = "root";
 		String password = "Studium2018;";
 		String sentencia = "SELECT * FROM jugadores WHERE puntuacion in (SELECT DISTINCT TOP 5 puntuacion FROM jugadores ORDER BY puntuacion DESC)";

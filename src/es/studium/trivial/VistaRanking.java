@@ -27,10 +27,11 @@ public class VistaRanking extends JFrame
 
 	private void initialize() 
 	{
-		this.setBounds(100, 100, 739, 489);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setBounds(100, 100, 545, 477);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		rankingJugadores = new JList<String>(new DefaultListModel<String>());
+		rankingJugadores.setFont(new Font("Tahoma", Font.BOLD, 18));
 		
 		JLabel lblJuego = new JLabel("Juego de Preguntas");
 		lblJuego.setHorizontalAlignment(SwingConstants.CENTER);
@@ -45,15 +46,14 @@ public class VistaRanking extends JFrame
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(91)
-							.addComponent(rankingJugadores, GroupLayout.PREFERRED_SIZE, 484, GroupLayout.PREFERRED_SIZE))
+							.addGap(23)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblJuego, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(rankingJugadores, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblJuego, GroupLayout.PREFERRED_SIZE, 709, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(266)
+							.addGap(190)
 							.addComponent(btnVolverMenu, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap(23, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -61,10 +61,10 @@ public class VistaRanking extends JFrame
 					.addContainerGap()
 					.addComponent(lblJuego, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 					.addGap(28)
-					.addComponent(rankingJugadores, GroupLayout.PREFERRED_SIZE, 258, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addComponent(rankingJugadores, GroupLayout.PREFERRED_SIZE, 243, GroupLayout.PREFERRED_SIZE)
+					.addGap(28)
 					.addComponent(btnVolverMenu, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-					.addGap(39))
+					.addGap(44))
 		);
 		
 		getContentPane().setLayout(groupLayout);

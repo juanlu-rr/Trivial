@@ -40,7 +40,7 @@ public class ControladorRanking implements WindowListener, ItemListener,ActionLi
 	}
 
 	public void windowClosing(WindowEvent e) {
-		vistaRanking.setVisible(false);
+		this.vistaRanking.setVisible(false);
 	}
 
 	public void windowDeactivated(WindowEvent e) {

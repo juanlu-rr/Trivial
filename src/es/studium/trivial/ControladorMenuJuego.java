@@ -29,7 +29,7 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 	}
 
 	public void windowClosing(WindowEvent e) {
-		VistaMenuJuego.setVisible(false);
+
 	}
 
 	public void windowDeactivated(WindowEvent e) {
@@ -53,9 +53,9 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 		objetoPulsado = ae.getSource();
 		if (objetoPulsado.equals(VistaMenuJuego.btnNuevoJuego)) 
 		{
-			ModeloJuegoPregunta1 mjp = new ModeloJuegoPregunta1();
-			VistaJuegoPregunta1 vjp = new VistaJuegoPregunta1();
-			new ControladorJuegoPregunta1(mjp, vjp);
+			ModeloPregunta1 mjp = new ModeloPregunta1();
+			VistaPregunta1 vjp = new VistaPregunta1();
+			new ControladorPregunta1(mjp, vjp);
 		} 
 		else if (objetoPulsado.equals(VistaMenuJuego.btnMostrarRanking)) 
 		{
