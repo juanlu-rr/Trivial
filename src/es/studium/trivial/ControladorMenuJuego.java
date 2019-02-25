@@ -7,17 +7,17 @@ import java.awt.event.WindowListener;
 
 public class ControladorMenuJuego implements ActionListener, WindowListener {
 	
-	VistaMenuJuego VistaMenuJuego = null;
-	ModeloMenuJuego ModeloMenuJuego = null;
-	VistaRanking VistaRanking = null;
+	VistaMenuJuego vistaMenuJuego = null;
+	VistaRanking vistaRanking = null;
+	ModeloMenuJuego modeloMenuJuego = null;
 
-	public ControladorMenuJuego(ModeloMenuJuego ModeloMenuJuego, VistaMenuJuego VistaMenuJuego) {
-		this.ModeloMenuJuego = ModeloMenuJuego;
-		this.VistaMenuJuego = VistaMenuJuego;
+	public ControladorMenuJuego(ModeloMenuJuego m, VistaMenuJuego v) {
+		this.modeloMenuJuego = m;
+		this.vistaMenuJuego = v;
 
-		VistaMenuJuego.addWindowListener(this);
-		VistaMenuJuego.btnNuevoJuego.addActionListener(this);
-		VistaMenuJuego.btnMostrarRanking.addActionListener(this);
+		vistaMenuJuego.addWindowListener(this);
+		vistaMenuJuego.btnNuevoJuego.addActionListener(this);
+		vistaMenuJuego.btnMostrarRanking.addActionListener(this);
 	}
 
 	public void windowActivated(WindowEvent e) {
@@ -51,13 +51,15 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 	public void actionPerformed(ActionEvent ae) {
 		Object objetoPulsado;
 		objetoPulsado = ae.getSource();
-		if (objetoPulsado.equals(VistaMenuJuego.btnNuevoJuego)) 
+		if (objetoPulsado.equals(vistaMenuJuego.btnNuevoJuego)) 
 		{
-			ModeloPregunta1 mjp = new ModeloPregunta1();
-			VistaPregunta1 vjp = new VistaPregunta1();
-			new ControladorPregunta1(mjp, vjp);
+			System.out.println("probando boton");
+			VistaPrincipioJuego vpj = new VistaPrincipioJuego();
+			ModeloPrincipioJuego mpj = new ModeloPrincipioJuego();
+			new ControladorPrincipioJuego(mpj, vpj);
+			System.out.println("Juego Nuevo iniciado");
 		} 
-		else if (objetoPulsado.equals(VistaMenuJuego.btnMostrarRanking)) 
+		else if (objetoPulsado.equals(vistaMenuJuego.btnMostrarRanking)) 
 		{
 			VistaRanking vistaRanking = new VistaRanking();
 			ModeloRanking modeloRanking = new ModeloRanking();

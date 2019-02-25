@@ -6,5 +6,6 @@ public class InicioJuego {
 		VistaMenuJuego VistaMenuJuego = new VistaMenuJuego();
 		ModeloMenuJuego ModeloMenuJuego = new ModeloMenuJuego();
 		new ControladorMenuJuego(ModeloMenuJuego, VistaMenuJuego);
+		System.out.println("Bienvenido a Juego de Preguntas");
 	}
 }

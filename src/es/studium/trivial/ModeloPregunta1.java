@@ -91,4 +91,9 @@ public class ModeloPregunta1 {
 		//		}
 	}
 
+	public void actualizarPuntuacion() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

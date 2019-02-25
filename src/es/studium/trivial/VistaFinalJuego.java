@@ -11,11 +11,11 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.JPanel;
 
 public class VistaFinalJuego {
 
 	JFrame frame;
-	JTextField txtNombre;
 	JButton btnFinalizar;
 	JLabel puntuacionTotal;
 	
@@ -27,7 +27,7 @@ public class VistaFinalJuego {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 0, 205));
-		frame.setBounds(100, 100, 739, 489);
+		frame.setBounds(100, 100, 739, 487);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel label = new JLabel("Juego de Preguntas");
@@ -36,17 +36,7 @@ public class VistaFinalJuego {
 		label.setFont(new Font("Snap ITC", Font.BOLD, 26));
 		label.setBackground(new Color(102, 205, 170));
 		
-		JLabel lblIntroduzcaNombre = new JLabel("Introduzca su nombre: ");
-		lblIntroduzcaNombre.setForeground(new Color(255, 0, 0));
-		lblIntroduzcaNombre.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblIntroduzcaNombre.setBackground(new Color(230, 230, 250));
-		lblIntroduzcaNombre.setHorizontalAlignment(SwingConstants.CENTER);
-		
 		btnFinalizar = new JButton("Finalizar");
-		
-		txtNombre = new JTextField();
-		txtNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtNombre.setColumns(10);
 		
 		JLabel lblSuPuntuacion = new JLabel("Su puntuaci\u00F3n ha sido:");
 		lblSuPuntuacion.setHorizontalAlignment(SwingConstants.CENTER);
@@ -60,6 +50,9 @@ public class VistaFinalJuego {
 		puntuacionTotal.setForeground(new Color(255, 255, 224));
 		puntuacionTotal.setFont(new Font("Tahoma", Font.BOLD, 25));
 		puntuacionTotal.setBackground(new Color(230, 230, 250));
+		
+		JLabel lblPuntuacion = new JLabel("New label");
+		lblPuntuacion.setBackground(new Color(0, 255, 255));
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -73,16 +66,14 @@ public class VistaFinalJuego {
 					.addGap(300))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(31)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblSuPuntuacion, GroupLayout.PREFERRED_SIZE, 293, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(puntuacionTotal, GroupLayout.PREFERRED_SIZE, 293, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblIntroduzcaNombre)
-							.addGap(50)
-							.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, 292, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(55, Short.MAX_VALUE))
+					.addComponent(lblSuPuntuacion, GroupLayout.PREFERRED_SIZE, 293, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+					.addComponent(puntuacionTotal, GroupLayout.PREFERRED_SIZE, 293, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(76, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(123)
+					.addComponent(lblPuntuacion, GroupLayout.PREFERRED_SIZE, 441, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(157, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -93,12 +84,10 @@ public class VistaFinalJuego {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblSuPuntuacion, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 						.addComponent(puntuacionTotal, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE))
-					.addGap(77)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(lblIntroduzcaNombre, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-					.addGap(60)
-					.addComponent(btnFinalizar, GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+					.addGap(45)
+					.addComponent(lblPuntuacion, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+					.addGap(51)
+					.addComponent(btnFinalizar, GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
 					.addGap(31))
 		);
 		frame.getContentPane().setLayout(groupLayout);
