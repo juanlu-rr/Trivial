@@ -7,15 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
-public class ModeloPregunta1 {
+public class ModeloPregunta5 {
 	String pregunta;
 	String respuestaCorrecta;
 	String respuestaIncorrecta1;
 	String respuestaIncorrecta2;
 	int ya;
-	int puntuacionJugador;
 
-	public void sacarPregunta (VistaPregunta1 VistaPregunta1)  {
+	public void sacarPregunta (VistaPregunta5 VistaPregunta5)  {
 		String driver = "com.mysql.jdbc.Driver";  
 		String url = "jdbc:mysql://localhost:3306/juegotrivial?useSSL=false";  
 		String login = "root";  
@@ -28,7 +27,6 @@ public class ModeloPregunta1 {
 		Random rand = new Random();
 		int preguntaAleatoria = rand.nextInt(21)+1;
 		String sentencia = "Select * FROM preguntas WHERE idPregunta =" + preguntaAleatoria + " AND ya = 0";
-		
 		//String update = "Update preguntas SET ya = 1 WHERE idPregunta ="+ preguntaAleatoria ;
 		try {
 			Class.forName(driver);
@@ -41,21 +39,21 @@ public class ModeloPregunta1 {
 			respuestaIncorrecta1 = rs.getString("respuestaIncorrecta1");
 			respuestaIncorrecta2 = rs.getString("respuestaIncorrecta2");
 
-			VistaPregunta1.pregunta1.setText(pregunta);
+			VistaPregunta5.pregunta1.setText(pregunta);
 			Random rand2 = new Random();
 			int i = rand2.nextInt(5);
-			if (i==0) { VistaPregunta1.respuesta1.setText(respuestaCorrecta); VistaPregunta1.respuesta2.setText(respuestaIncorrecta1); 
-			VistaPregunta1.respuesta3.setText(respuestaIncorrecta2);
-			} else if (i==1) { VistaPregunta1.respuesta1.setText(respuestaCorrecta); VistaPregunta1.respuesta2.setText(respuestaIncorrecta2);
-			VistaPregunta1.respuesta3.setText(respuestaIncorrecta1);
-			} else if (i==2) { VistaPregunta1.respuesta1.setText(respuestaIncorrecta1); VistaPregunta1.respuesta2.setText(respuestaCorrecta);
-			VistaPregunta1.respuesta3.setText(respuestaIncorrecta2);
-			}else if (i==3) { VistaPregunta1.respuesta1.setText(respuestaIncorrecta1); VistaPregunta1.respuesta2.setText(respuestaIncorrecta2);
-			VistaPregunta1.respuesta3.setText(respuestaCorrecta);
-			}else if (i==4) { VistaPregunta1.respuesta1.setText(respuestaIncorrecta2); VistaPregunta1.respuesta2.setText(respuestaCorrecta);
-			VistaPregunta1.respuesta3.setText(respuestaIncorrecta1);
-			}else if (i==5) { VistaPregunta1.respuesta1.setText(respuestaIncorrecta2); VistaPregunta1.respuesta2.setText(respuestaIncorrecta1);
-			VistaPregunta1.respuesta3.setText(respuestaCorrecta);
+			if (i==0) { VistaPregunta5.respuesta1.setText(respuestaCorrecta); VistaPregunta5.respuesta2.setText(respuestaIncorrecta1); 
+			VistaPregunta5.respuesta3.setText(respuestaIncorrecta2);
+			} else if (i==1) { VistaPregunta5.respuesta1.setText(respuestaCorrecta); VistaPregunta5.respuesta2.setText(respuestaIncorrecta2);
+			VistaPregunta5.respuesta3.setText(respuestaIncorrecta1);
+			} else if (i==2) { VistaPregunta5.respuesta1.setText(respuestaIncorrecta1); VistaPregunta5.respuesta2.setText(respuestaCorrecta);
+			VistaPregunta5.respuesta3.setText(respuestaIncorrecta2);
+			}else if (i==3) { VistaPregunta5.respuesta1.setText(respuestaIncorrecta1); VistaPregunta5.respuesta2.setText(respuestaIncorrecta2);
+			VistaPregunta5.respuesta3.setText(respuestaCorrecta);
+			}else if (i==4) { VistaPregunta5.respuesta1.setText(respuestaIncorrecta2); VistaPregunta5.respuesta2.setText(respuestaCorrecta);
+			VistaPregunta5.respuesta3.setText(respuestaIncorrecta1);
+			}else if (i==5) { VistaPregunta5.respuesta1.setText(respuestaIncorrecta2); VistaPregunta5.respuesta2.setText(respuestaIncorrecta1);
+			VistaPregunta5.respuesta3.setText(respuestaCorrecta);
 			}
 		} catch (ClassNotFoundException cnfe) {
 			System.out.println("Error 1-" + cnfe.getMessage());
@@ -69,9 +67,10 @@ public class ModeloPregunta1 {
 				}
 			} catch (SQLException e) {
 				System.out.println("Error 3-" + e.getMessage());
+				
 			}
 		}
-
+		
 //		try {
 //			Class.forName(driver);
 //			connection = DriverManager.getConnection(url, login, password);
@@ -94,8 +93,10 @@ public class ModeloPregunta1 {
 //			}
 //		}
 	}
+
 	public int aumentarPuntuacion(int puntuacion) {
 		return puntuacion+1;
 	}
+	
 
 }

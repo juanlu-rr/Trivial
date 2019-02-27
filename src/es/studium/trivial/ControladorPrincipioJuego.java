@@ -19,22 +19,14 @@ public class ControladorPrincipioJuego implements WindowListener,ActionListener
 		vistaPrincipioJuego.btnSiguiente.addActionListener(this);
 
 	}
-	
-
-
 
 	public void actionPerformed(ActionEvent a)  {
 		Object objetoPulsado = a.getSource();
 		if (objetoPulsado.equals(vistaPrincipioJuego.btnSiguiente))  {
 			ModeloPregunta1 mp1 = new ModeloPregunta1();
 			VistaPregunta1 vp1 = new VistaPregunta1();
-			new ControladorPregunta1(mp1, vp1);
+			new ControladorPregunta1(mp1, vp1, vistaPrincipioJuego.txtNombre.getText());
 		} 
-		try {
-			modeloPrincipioJuego.AltaJugador(vistaPrincipioJuego.txtNombre.getText(), 0);
-		} catch (ClassNotFoundException e2) {
-			e2.printStackTrace();
-		}
 		vistaPrincipioJuego.frame.setVisible(false);
 
 	}

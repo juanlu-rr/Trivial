@@ -53,7 +53,6 @@ public class ControladorMenuJuego implements ActionListener, WindowListener {
 		objetoPulsado = ae.getSource();
 		if (objetoPulsado.equals(vistaMenuJuego.btnNuevoJuego)) 
 		{
-			System.out.println("probando boton");
 			VistaPrincipioJuego vpj = new VistaPrincipioJuego();
 			ModeloPrincipioJuego mpj = new ModeloPrincipioJuego();
 			new ControladorPrincipioJuego(mpj, vpj);

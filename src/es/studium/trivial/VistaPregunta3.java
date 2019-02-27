@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 
 import javax.swing.border.LineBorder;
 
-public class VistaPregunta2 {
+public class VistaPregunta3 {
 
 	JFrame frame;
 	JTextArea pregunta1;
@@ -28,7 +28,7 @@ public class VistaPregunta2 {
 	
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
-	public VistaPregunta2() {
+	public VistaPregunta3() {
 		initialize();
 	}
 
